@@ -13,6 +13,7 @@ gem "stimulus-rails"
 gem "jbuilder"
 gem 'semver', '~> 1.0', '>= 1.0.1'
 gem 'bootstrap', '~> 5.2.3'
+gem 'devise', '~> 4.8', '>= 4.8.1'
 
 gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 gem "bootsnap", require: false
