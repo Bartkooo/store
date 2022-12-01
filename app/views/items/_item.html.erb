@@ -1,14 +1,16 @@
-<div id="<%= dom_id item %>" class="card mb-3">
+<div id="<%= dom_id item %>" class="card mb-3" style="height: 150px">
   <div class="row g-0">
-    <div class="col-md-2">
-      <img src="..." class="img-fluid rounded-start" alt="...">
+    <div class="col-md-3">
+      <%= image_tag item.image.url(:medium), class:"img-fluid rounded-start" %>
     </div>
-    <div class="col-md-8">
+    <div class="col-md-7">
       <div class="card-body">
-        <h5 class="card-title"><%= link_to item.name, item %></h5>
-        <p class="card-text"><%= item.description %></p>
-        <p class="card-text"><%= item.price %></p>
+        <h3 class="card-title fw-bold"><%= link_to item.name, item %></h3>
+        <p class="card-text text-truncate"><%= item.description %></p>
       </div>
+    </div>
+    <div class="col-md-2">
+      <div class="card-text fs-1 fw-bold text-end pe-4"><%= item.price %>$</div>
     </div>
   </div>
 </div>
