@@ -14,7 +14,8 @@ class ItemsController < ApplicationController
 
   # GET /items/new
   def new
-    @item = Item.new
+    #@item = Item.new
+    @item = current_user.items.build
   end
 
   # GET /items/1/edit
@@ -60,7 +61,7 @@ class ItemsController < ApplicationController
   end
 
   def correct_user
-    @item = correct_user.items.find_by(id: params[:id])
+    @item = current_user.items.find_by(id: params[:id])
     redirect_to items_path, notice: "Not authorized to edit this element" if @item.nil?
   end
 
