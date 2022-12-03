@@ -30,6 +30,10 @@
     <label class="form-label">Image</label></br>
     <%= form.file_field :image %>
   </div>
+  
+  <div>
+    <%= form.number_field :user_id, id: :item_user_id, class:"form-control", value: current_user.id, type: :hidden %>
+  </div>
 
   <div class="mb-3">
     <%= form.submit class:"btn btn-primary" %>

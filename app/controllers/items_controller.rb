@@ -1,5 +1,7 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!, except: [:index, :show]
+  before_action :correct_user, only: [:edit, :update, :destroy]
 
   # GET /items or /items.json
   def index
@@ -57,6 +59,11 @@ class ItemsController < ApplicationController
     end
   end
 
+  def correct_user
+    @item = correct_user.items.find_by(id: params[:id])
+    redirect_to items_path, notice: "Not authorized to edit this element" if @item.nil?
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_item
@@ -65,6 +72,6 @@ class ItemsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def item_params
-      params.require(:item).permit(:name, :description, :price, :image)
+      params.require(:item).permit(:name, :description, :price, :image, :user_id)
     end
 end
