@@ -26,6 +26,11 @@
     <%= form.number_field :price, class:"form-control", required: true %>
   </div>
 
+  <div class="mb-3 d-flex flex-column">
+    <label class="form-label">Category</label>
+    <%= form.select(:category, categories_options, {}, {class: "btn border border-1 dropdown-toggle", required: true}) %>
+  </div>
+
   <div class="mb-3">
     <label class="form-label">Image</label></br>
     <%= form.file_field :image, required: true %>

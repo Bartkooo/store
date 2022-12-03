@@ -1,6 +1,7 @@
 <div class="d-flex justify-content-between">
   <h1>Items</h1>
   <div class="d-flex align-items-center">
+    <%#= select_tag(:category_i, options_for_select(categories_options, [params{category_i}]), class:"btn btn-secondary me-2") %>
     <% if user_signed_in? %>
       <%= link_to "New item", new_item_path, class:"btn btn-primary" %>
     <% else %>
