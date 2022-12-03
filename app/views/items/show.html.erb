@@ -1,4 +1,14 @@
-<%= render @item %>
+<div class="d-flex justify-content-between border">
+  <%= image_tag @item.image.url, size:"750x450" %>
+  <div class="d-flex flex-column justify-content-between w-100 border">
+    <div>
+      <h1 class="card-title fw-bold p-4"><%= @item.name %></h1>
+      <div class="card-text item-description ps-4"><%= @item.description %></div>
+    </div>
+    <div class="card-text fs-1 fw-bold text-end pe-4"><%= @item.price %>$</div>
+  </div>
+</div>
+
 
 <div>
   <%= link_to "Back to items", items_path %>
