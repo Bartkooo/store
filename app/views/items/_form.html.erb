@@ -22,8 +22,11 @@
   </div>
 
   <div class="mb-3">
-    <label class="form-label">Price($)</label>
-    <%= form.number_field :price, class:"form-control", required: true %>
+    <label class="form-label">Price</label>
+    <div class="input-group mb-3">
+      <span class="input-group-text">$</span>
+      <%= form.number_field :price, class:"form-control", required: true %>
+    </div>
   </div>
 
   <div class="mb-3 d-flex flex-column">
