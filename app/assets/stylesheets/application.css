@@ -16,7 +16,14 @@
 
 .item-description {
     display: -webkit-box;
-    -webkit-line-clamp: 3;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;  
+    overflow: hidden;
+}
+
+.item-description-l {
+    display: -webkit-box;
+    -webkit-line-clamp: 10;
     -webkit-box-orient: vertical;  
     overflow: hidden;
 }

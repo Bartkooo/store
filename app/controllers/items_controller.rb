@@ -7,8 +7,15 @@ class ItemsController < ApplicationController
   def index
     if params[:search]
       searching = params[:search].capitalize
+      condition = ["name LIKE ?", "%#{searching}%"]
     end
-    @items = Item.where(["name LIKE ?", "%#{searching}%"])
+    
+    if params[:cat]
+      categorizing = params[:cat].capitalize
+      condition = ["category LIKE ?", "%#{categorizing}%"]
+    end
+
+    @items = Item.where(condition)
   end
 
   # GET /items/1 or /items/1.json
