@@ -11,7 +11,7 @@ class ItemsController < ApplicationController
     end
     
     if params[:cat]
-      categorizing = params[:cat].capitalize
+      categorizing = params[:cat]
       condition = ["category LIKE ?", "%#{categorizing}%"]
     end
 
