@@ -30,14 +30,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_03_172024) do
     t.index ["user_id"], name: "index_items_on_user_id"
   end
 
-  create_table "searches", force: :cascade do |t|
-    t.string "category"
-    t.integer "min_price"
-    t.integer "max_price"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false

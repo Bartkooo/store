@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: %i[ show edit update destroy ]
+  before_action :set_item, only: %i[show edit update destroy]
   before_action :authenticate_user!, except: [:index, :show]
   before_action :correct_user, only: [:edit, :update, :destroy]
 
@@ -9,7 +9,7 @@ class ItemsController < ApplicationController
       searching = params[:search].capitalize
       condition = ["name LIKE ?", "%#{searching}%"]
     end
-    
+
     if params[:cat]
       categorizing = params[:cat]
       condition = ["category LIKE ?", "%#{categorizing}%"]
@@ -24,7 +24,7 @@ class ItemsController < ApplicationController
 
   # GET /items/new
   def new
-    #@item = Item.new
+    # @item = Item.new
     @item = current_user.items.build
   end
 
@@ -76,13 +76,14 @@ class ItemsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_item
-      @item = Item.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def item_params
-      params.require(:item).permit(:name, :description, :category, :price, :image, :user_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_item
+    @item = Item.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def item_params
+    params.require(:item).permit(:name, :description, :category, :price, :image, :user_id)
+  end
 end
