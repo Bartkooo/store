@@ -251,6 +251,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  actionpack (~> 7.0, >= 7.0.4)
   bootsnap
   bootstrap (~> 5.2.3)
   debug
